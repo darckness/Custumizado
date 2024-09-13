@@ -2,7 +2,6 @@ import os
 import requests
 
 def consulta_mac(mac):
-    
     URL = "https://helpdesk.remotize.intelbras.com.br/api/devices/" + mac    
 
     token_file_path = os.path.join(os.path.dirname(__file__), '..', 'token.txt')
@@ -16,13 +15,13 @@ def consulta_mac(mac):
     response = requests.get(URL, headers=headers)
     
     if response.status_code == 200:
-        assoc_status = response.json()['assoc_status']
+        status = response.json()['profile']['status']
+        client = response.json()['profile']['name']
         version = response.json()['fw_version']
-        return assoc_status, version
+        
+        #print(status, client, version)
+
+        return status, version, client
     else:
         nomac = 10
         return nomac
-        
-mac = "30e1f1eaa287"
-
-consulta_mac(mac)

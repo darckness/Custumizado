@@ -4,15 +4,20 @@ import threading
 from API.consulta import consulta_mac
 from screen.config import open_new_window
 def main(async_loop):
+    # Aparencia da janela
     ctk.set_appearance_mode("light")
     ctk.set_default_color_theme("blue")
+
     # Janela principal
     root = ctk.CTk()
     root.title("Customizado")
     root.geometry("1020x580")
     root.configure(bg='#b3e9f3')
+
     # Não deixa redimensionar a tela
     root.resizable(False, False)
+
+    # Container para os cards
     container = ctk.CTkFrame(root, fg_color="#b3e9f3")
     container.pack(pady=20)
 
@@ -40,6 +45,7 @@ def main(async_loop):
     # Botão para limpar os campos de entrada
     buttonClear = ctk.CTkButton(button_frame, text="Limpar Campos", command=clear_entries)
     buttonClear.pack(side="left", padx=10)
+
     root.mainloop()
 
 # Função para criar um card individual com entrada de dados
@@ -112,16 +118,12 @@ def clear_entries():
     for entry in entries:
         entry.delete(0, ctk.END)  # Limpa o valor do campo de entrada
 
-# Container para os cards
+# Criando e posicionando os cards individualmente
 entries = []
 status_labels = []
 fw_labels = []
 client_labels = []
 
-# Criando e posicionando os cards individualmente
-
-
 # Rodar a aplicação
-# root.mainloop()
 loop = asyncio.get_event_loop()
 main(loop)

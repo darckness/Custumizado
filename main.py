@@ -3,6 +3,7 @@ import asyncio
 import threading
 from API.consulta import consulta_mac
 from screen.config import open_new_window
+
 def main(async_loop):
     # Aparencia da janela
     ctk.set_appearance_mode("light")

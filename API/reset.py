@@ -2,8 +2,8 @@ import requests
 import time
 
 def reset_padrao():
-    URL_reset = "http://10.0.0.1/api/v1/action"
-    URL = "http://10.0.0.1/api/v1/session"
+    URL_reset = ""
+    URL = ""
     
     data = {
         "username": "admin",

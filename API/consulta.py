@@ -2,7 +2,7 @@ import os
 import requests
 
 def consulta_mac(mac):
-    URL = "" + mac    
+    URL = "https://helpdesk.remotize.intelbras.com.br/api/devices/" + mac    
 
     token_file_path = os.path.join(os.path.dirname(__file__), '..', 'token.txt')
     with open(token_file_path, 'r') as file:

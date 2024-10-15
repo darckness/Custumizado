@@ -87,6 +87,7 @@ async def update_status_async(entry, status_label, fw_label, client_label, next_
                     status_label.configure(text="Status: Confirmado", text_color="green")
                 elif assoc_status == 4:
                     status_label.configure(text="Status: Reaplicando", text_color="yellow")
+
                 fw_label.configure(text=f"Versão de FW\n{fw_version}",  text_color="white")  # Atualiza a versão de firmware
                 client_label.configure(text=f"Cliente\n{client}",  text_color="white")  # Atualiza o cliente
             else:
@@ -106,7 +107,7 @@ async def update_status_async(entry, status_label, fw_label, client_label, next_
             status_label.configure(text="Sem mac", text_color="blue")
             fw_label.configure(text="Versão de FW\nDesconhecida", text_color="black")
             client_label.configure(text="Cliente\nDesconhecido", text_color="black")
-        await asyncio.sleep(2)  # Aguarde 1 segundo antes da próxima consulta
+        await asyncio.sleep(0.1)  # Aguarde 1 segundo antes da próxima consulta
 
 # Função para iniciar a consulta de forma assíncrona
 def start_async_loop(entry, status_label, fw_label, client_label, next_entry=None):
